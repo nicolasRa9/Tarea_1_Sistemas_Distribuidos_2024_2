@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  redis1:
+    image: docker.io/bitnami/redis:7.4
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    ports:
+      - '6379:6379'
+    volumes:
+      - 'redis1_data:/bitnami/redis/data'
+
+  redis2:
+    image: docker.io/bitnami/redis:7.4
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    ports:
+      - '6380:6379'
+    volumes:
+      - 'redis2_data:/bitnami/redis/data'
+
+  grpc_server:
+    build: ./grpc_server  # Asume que tienes un Dockerfile para el servidor gRPC
+    container_name: grpc_server
+    ports:
+      - "50051:50051"
+    depends_on:
+      - redis1
+      - redis2
+
+  api:
+    build: ./api  # Asume que tienes un Dockerfile para la API
+    container_name: api
+    ports:
+      - "5000:5000"
+    depends_on:
+      - grpc_server
+      - redis1
+      - redis2
+
+volumes:
+  redis1_data:
+    driver: local
+  redis2_data:
+    driver: local
