@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package cache;
+
+service DNSResolver {
+  rpc Resolve (ResolveRequest) returns (ResolveReply);
+}
+
+message ResolveRequest {
+  string domain = 1;
+}
+
+message ResolveReply {
+  string ip = 1;
+  string source = 2;  // Para indicar si proviene del caché o de gRPC
+}
