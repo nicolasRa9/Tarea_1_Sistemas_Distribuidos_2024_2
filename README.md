@@ -3,6 +3,7 @@ Primero, definimos el servicio gRPC en un archivo .proto. Este archivo describe 
 Este archivo define dos métodos:
 * GetValue: para obtener un valor de Redis usando una clave.
 * SetValue: para guardar un valor en Redis con una clave.
+
 Una vez que tengas tu archivo .proto, genera los archivos necesarios para Python utilizando el compilador protoc.
 Esto generará los archivos cache_pb2.py y cache_pb2_grpc.py, que puedes usar para construir el servidor y el cliente gRPC.
 Ahora, implementamos el api que se comunicará con Redis y que atraves de servidor gRPC que manejará las peticiones y  conectara el servidor gRPC a múltiples instancias de Redis.
