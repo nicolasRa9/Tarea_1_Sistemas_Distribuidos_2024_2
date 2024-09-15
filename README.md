@@ -18,8 +18,7 @@ Clona este proyecto en tu máquina local:
 
 bash
 Copiar código
-git clone https://github.com/usuario/proyecto-dns-grpc.git
-cd proyecto-dns-grpc
+
 2. Configuración de Redis
 El proyecto utiliza varias instancias de Redis para caché distribuida. Las particiones de la caché están configuradas de acuerdo con las direcciones hash de las consultas DNS.
 
