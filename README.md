@@ -1,6 +1,6 @@
 # Tarea_1_Sistemas_Distribuidos_2024_2
 Este proyecto implementa un servidor DNS distribuido utilizando gRPC, con múltiples instancias de Redis para almacenamiento en caché de consultas DNS. Se han implementado políticas de particionado y remoción de la caché utilizando Redis.
-
+cada escenario tiene las configuraciones para cada ecenario
 Requisitos
 Asegúrate de tener instalados los siguientes componentes en tu máquina antes de ejecutar el proyecto:
 
