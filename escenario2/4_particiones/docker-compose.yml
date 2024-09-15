@@ -6,6 +6,8 @@ services:
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
       - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+      - REDIS_MAXMEMORY=512mb
+      - REDIS_MAXMEMORY_POLICY=allkeys-lru 
     ports:
       - '6379:6379'
     volumes:
@@ -16,6 +18,8 @@ services:
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
       - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+      - REDIS_MAXMEMORY=512mb
+      - REDIS_MAXMEMORY_POLICY=allkeys-lru 
     ports:
       - '6380:6379'
     volumes:
@@ -26,6 +30,8 @@ services:
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
       - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+      - REDIS_MAXMEMORY=512mb
+      - REDIS_MAXMEMORY_POLICY=allkeys-lru 
     ports:
       - '6381:6379'
     volumes:
@@ -36,50 +42,12 @@ services:
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
       - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+      - REDIS_MAXMEMORY=512mb
+      - REDIS_MAXMEMORY_POLICY=allkeys-lru 
     ports:
       - '6382:6379'
     volumes:
       - 'redis4_data:/bitnami/redis/data'
-
-  redis5:
-    image: docker.io/bitnami/redis:7.4
-    environment:
-      - ALLOW_EMPTY_PASSWORD=yes
-      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
-    ports:
-      - '6383:6379'
-    volumes:
-      - 'redis5_data:/bitnami/redis/data'
-
-  redis6:
-    image: docker.io/bitnami/redis:7.4
-    environment:
-      - ALLOW_EMPTY_PASSWORD=yes
-      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
-    ports:
-      - '6384:6379'
-    volumes:
-      - 'redis6_data:/bitnami/redis/data'
-
-  redis7:
-    image: docker.io/bitnami/redis:7.4
-    environment:
-      - ALLOW_EMPTY_PASSWORD=yes
-      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
-    ports:
-      - '6385:6379'
-    volumes:
-      - 'redis7_data:/bitnami/redis/data'
-
-  redis8:
-    image: docker.io/bitnami/redis:7.4
-    environment:
-      - ALLOW_EMPTY_PASSWORD=yes
-      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
-    ports:
-      - '6386:6379'
-    volumes:
-      - 'redis8_data:/bitnami/redis/data'
 
   grpc_server:
     build: ./grpc_server
@@ -91,10 +59,6 @@ services:
       - redis2
       - redis3
       - redis4
-      - redis5
-      - redis6
-      - redis7
-      - redis8
 
   api:
     build: ./api
@@ -107,10 +71,6 @@ services:
       - redis2
       - redis3
       - redis4
-      - redis5
-      - redis6
-      - redis7
-      - redis8
 
 volumes:
   redis1_data:
@@ -120,12 +80,4 @@ volumes:
   redis3_data:
     driver: local
   redis4_data:
-    driver: local
-  redis5_data:
-    driver: local
-  redis6_data:
-    driver: local
-  redis7_data:
-    driver: local
-  redis8_data:
     driver: local
