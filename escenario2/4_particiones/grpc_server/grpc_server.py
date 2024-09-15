@@ -8,7 +8,9 @@ import hashlib
 # Conexión a Redis
 redis_clients = [
     redis.StrictRedis(host='redis1', port=6379, db=0),
-    redis.StrictRedis(host='redis2', port=6379, db=0)
+    redis.StrictRedis(host='redis2', port=6379, db=0),
+    redis.StrictRedis(host='redis3', port=6379, db=0),
+    redis.StrictRedis(host='redis4', port=6379, db=0)
 ]
 
 def get_redis_instance(domain):
