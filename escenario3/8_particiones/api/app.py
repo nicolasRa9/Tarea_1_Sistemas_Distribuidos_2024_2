@@ -10,7 +10,12 @@ redis_clients = [
     redis.StrictRedis(host='redis1', port=6379, db=0),  # Primera instancia Redis
     redis.StrictRedis(host='redis2', port=6379, db=0),  # Segunda instancia Redis
     redis.StrictRedis(host='redis3', port=6379, db=0),  # Tercera instancia Redis
-    redis.StrictRedis(host='redis4', port=6379, db=0)   # Cuarta instancia Redis
+    redis.StrictRedis(host='redis4', port=6379, db=0),
+    redis.StrictRedis(host='redis5', port=6379, db=0),  # Primera instancia Redis
+    redis.StrictRedis(host='redis6', port=6379, db=0),  # Segunda instancia Redis
+    redis.StrictRedis(host='redis7', port=6379, db=0),  # Tercera instancia Redis
+    redis.StrictRedis(host='redis8', port=6379, db=0)
+                                                   
 ]
 
 # Definir las reglas de partición
