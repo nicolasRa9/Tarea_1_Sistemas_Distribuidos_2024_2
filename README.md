@@ -32,3 +32,24 @@ Este proyecto es una arquitectura distribuida que utiliza múltiples instancias 
    ```bash
    git clone <URL del repositorio>
    cd <directorio del proyecto>
+2. **Estructura del proyecto:**
+   ```bash
+   ├── api/
+   │   ├── app.py  # Código principal de la API
+   ├── grpc_server/
+   │   ├── grpc_server.py  # Código principal del servidor gRPC
+   ├── docker-compose.yml  # Definición de servicios de Docker
+   ├── README.md  # Instrucciones del proyecto
+3. **Configuración de Redis y gRPC**
+ en Docker Compose Este proyecto utiliza múltiples instancias de Redis. Para configurar y ejecutar las instancias con gRPC, asegúrate de tener Docker Compose instalado.
+4.**Ejecutar el proyecto:**
+   ```bash
+   docker-compose up --build
+5.**politicas de remocion**
+Puedes configurar la política de remoción en Redis directamente utilizando los comandos de Redis o configurando el archivo redis.conf para definir cómo se eliminan las claves cuando Redis alcanza el límite de memoria
+
+**Observaciones**
+Asegúrate de que todos los contenedores estén corriendo correctamente antes de realizar consultas a la API.
+
+
+   
